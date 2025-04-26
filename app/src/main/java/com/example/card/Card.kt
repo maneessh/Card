@@ -1,6 +1,7 @@
 package com.example.card
 
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Im
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,13 +25,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.nio.InvalidMarkException
 
 class Card : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,27 +81,96 @@ fun ProfileBody(innerPadding : PaddingValues){
         }
 
         Row {
-            Card(modifier = Modifier.height(200.dp).weight(1f)
-            ){}
+            Card(modifier = Modifier.height(160.dp).weight(1f)
+            ){
+                Image(
+                    painter = painterResource(R.drawable.book),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
+            }
+
             Spacer(modifier = Modifier
                 .width(10.dp)
             )
-            Card(modifier = Modifier.height(200.dp).weight(1f)
-            ){}
+            Card(modifier = Modifier.height(160.dp).weight(1f)
+            ){
+                Image(
+                    painter = painterResource(R.drawable.house),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit
+                )
+            }
         }
-        Row {Card(modifier = Modifier.height(200.dp).weight(1f)
-        ){}
-            Spacer(modifier = Modifier
-                .width(10.dp)
+        Spacer(modifier = Modifier
+            .height(10.dp))
+        Row {
+            Card(
+                modifier = Modifier.height(160.dp).weight(1f)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.character),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit
+                )
+            }
+            Spacer(
+                modifier = Modifier
+                    .width(10.dp)
             )
-            Card(modifier = Modifier.height(200.dp).weight(1f)
-            ){}
-
+            Card(
+                modifier = Modifier.height(160.dp).weight(1f)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.card),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit
+                )
+            }
         }
+        Spacer(modifier = Modifier
+            .height(10.dp))
 
-
+        Row {
+            Card(modifier = Modifier.height(160.dp).weight(1f)
+            ){
+                Image(
+                    painter = painterResource(R.drawable.key),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit
+                )
+            }
+            Spacer(modifier = Modifier
+                .width(10.dp))
+            Card(modifier = Modifier.height(160.dp).weight(1f)
+            ){
+                Image(
+                    painter = painterResource(R.drawable.logistic),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+        }
+        Spacer(modifier = Modifier
+            .height(10.dp))
+        Row{
+            Card(modifier = Modifier.height(100.dp).weight(1f)
+            ){
+                Image(
+                    painter = painterResource(R.drawable.settings),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize()
+                )
+                Text(text = "Settings")
+                }
+            }
+        }
     }
-
 }
 
 
